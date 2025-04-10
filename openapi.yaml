@@ -1,0 +1,31 @@
+openapi: 3.0.1
+info:
+  title: FleetFox External Part Lookup
+  version: 1.0.0
+paths:
+  /parts/{partNumber}:
+    get:
+      summary: Get fleet part by part number
+      operationId: getPart
+      parameters:
+        - name: partNumber
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful part lookup
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  partName:
+                    type: string
+                  imageUrl:
+                    type: string
+                  description:
+                    type: string
+                  price:
+                    type: number
